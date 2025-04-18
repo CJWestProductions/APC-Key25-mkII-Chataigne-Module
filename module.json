@@ -1,0 +1,592 @@
+{
+	"name":"APC Key25 mkII",
+	"type":"MIDI",
+	"path":"Hardware",
+	
+	"version":"0.1.0",
+	"description":"Special MIDI Module for the APC Key25 mkII MIDI Controller",
+	"url":"https://github.com/lenschcode/APC-Mini-mkII-Chataigne-Module",
+	"downloadURL":"https://github.com/lenschcode/APC-Mini-mkII-Chataigne-Module/archive/master.zip",
+
+	"hasInput":true,
+	"hasOutput":true, 
+
+	"hideDefaultCommands":true,
+
+	"parameters":
+	{
+		"Colors":
+		{
+			"type": "Container",
+			"collapsed":false,
+
+			"Main Pads":
+			{
+				"type": "Container",
+				"collapsed":true,
+
+				"Pad 1.1": { "type": "Color"},
+				"Pad 1.2": { "type": "Color"},
+				"Pad 1.3": { "type": "Color"},
+				"Pad 1.4": { "type": "Color"},
+				"Pad 1.5": { "type": "Color"},
+				"Pad 1.6": { "type": "Color"},
+				"Pad 1.7": { "type": "Color"},
+				"Pad 1.8": { "type": "Color"},
+
+				"Pad 2.1": { "type": "Color"},
+				"Pad 2.2": { "type": "Color"},
+				"Pad 2.3": { "type": "Color"},
+				"Pad 2.4": { "type": "Color"},
+				"Pad 2.5": { "type": "Color"},
+				"Pad 2.6": { "type": "Color"},
+				"Pad 2.7": { "type": "Color"},
+				"Pad 2.8": { "type": "Color"},
+
+				"Pad 3.1": { "type": "Color"},
+				"Pad 3.2": { "type": "Color"},
+				"Pad 3.3": { "type": "Color"},
+				"Pad 3.4": { "type": "Color"},
+				"Pad 3.5": { "type": "Color"},
+				"Pad 3.6": { "type": "Color"},
+				"Pad 3.7": { "type": "Color"},
+				"Pad 3.8": { "type": "Color"},
+
+				"Pad 4.1": { "type": "Color"},
+				"Pad 4.2": { "type": "Color"},
+				"Pad 4.3": { "type": "Color"},
+				"Pad 4.4": { "type": "Color"},
+				"Pad 4.5": { "type": "Color"},
+				"Pad 4.6": { "type": "Color"},
+				"Pad 4.7": { "type": "Color"},
+				"Pad 4.8": { "type": "Color"},
+
+				"Pad 5.1": { "type": "Color"},
+				"Pad 5.2": { "type": "Color"},
+				"Pad 5.3": { "type": "Color"},
+				"Pad 5.4": { "type": "Color"},
+				"Pad 5.5": { "type": "Color"},
+				"Pad 5.6": { "type": "Color"},
+				"Pad 5.7": { "type": "Color"},
+				"Pad 5.8": { "type": "Color"}
+			},
+
+			"Other Buttons":
+			{
+				"type": "Container",
+				"collapsed":true,
+
+				"Up": { "type": "Boolean"},
+				"Down": { "type": "Boolean"},
+				"Left": { "type": "Boolean"},
+				"Right": { "type": "Boolean"},
+				"Volume": { "type": "Boolean"},
+				"Pan": { "type": "Boolean"},
+				"Send": { "type": "Boolean"},
+				"Device": { "type": "Boolean"},
+				"Shift": { "type": "Boolean"},
+				"Play/Pause": { "type": "Boolean"},
+				"Record": { "type": "Boolean"}
+			},
+
+			"Softkeys":
+			{
+				"type": "Container",
+				"collapsed":true,
+
+				"Clip Stop": { "type": "Boolean"},
+				"Solo": { "type": "Boolean"},
+				"Mute": { "type": "Boolean"},
+				"Rec": { "type": "Boolean"},
+				"Select": { "type": "Boolean"},
+				"Stop All Clips": { "type": "Boolean"}
+			}
+		},
+		
+		"Pulsing":
+		{
+			"type": "Container",
+			"collapsed":false,
+
+			"Main Pads":
+			{
+				"type":"Container",
+				"collapsed":true,
+
+				"Pad 1.1": { "type": "Boolean"},
+				"Pad 1.2": { "type": "Boolean"},
+				"Pad 1.3": { "type": "Boolean"},
+				"Pad 1.4": { "type": "Boolean"},
+				"Pad 1.5": { "type": "Boolean"},
+				"Pad 1.6": { "type": "Boolean"},
+				"Pad 1.7": { "type": "Boolean"},
+				"Pad 1.8": { "type": "Boolean"},
+
+				"Pad 2.1": { "type": "Boolean"},
+				"Pad 2.2": { "type": "Boolean"},
+				"Pad 2.3": { "type": "Boolean"},
+				"Pad 2.4": { "type": "Boolean"},
+				"Pad 2.5": { "type": "Boolean"},
+				"Pad 2.6": { "type": "Boolean"},
+				"Pad 2.7": { "type": "Boolean"},
+				"Pad 2.8": { "type": "Boolean"},
+
+				"Pad 3.1": { "type": "Boolean"},
+				"Pad 3.2": { "type": "Boolean"},
+				"Pad 3.3": { "type": "Boolean"},
+				"Pad 3.4": { "type": "Boolean"},
+				"Pad 3.5": { "type": "Boolean"},
+				"Pad 3.6": { "type": "Boolean"},
+				"Pad 3.7": { "type": "Boolean"},
+				"Pad 3.8": { "type": "Boolean"},
+
+				"Pad 4.1": { "type": "Boolean"},
+				"Pad 4.2": { "type": "Boolean"},
+				"Pad 4.3": { "type": "Boolean"},
+				"Pad 4.4": { "type": "Boolean"},
+				"Pad 4.5": { "type": "Boolean"},
+				"Pad 4.6": { "type": "Boolean"},
+				"Pad 4.7": { "type": "Boolean"},
+				"Pad 4.8": { "type": "Boolean"},
+
+				"Pad 5.1": { "type": "Boolean"},
+				"Pad 5.2": { "type": "Boolean"},
+				"Pad 5.3": { "type": "Boolean"},
+				"Pad 5.4": { "type": "Boolean"},
+				"Pad 5.5": { "type": "Boolean"},
+				"Pad 5.6": { "type": "Boolean"},
+				"Pad 5.7": { "type": "Boolean"},
+				"Pad 5.8": { "type": "Boolean"}
+			}
+		}
+	},
+
+	"defaults":
+	{		
+		"devices":[
+			"MIDIIN2 (APC Key 25 mk2)",
+			"MIDIOUT2 (APC Key 25 mk2)"
+		],
+		"autoAdd":false
+	},
+
+	"hideDefaultParameters":
+	[
+		"autoAdd",
+		"autoFeedback",
+		"useHierarchy",
+		"octaveShift",
+		"usePitchForNoteNames",
+		"pass_through"
+	],
+
+
+	"scripts":
+	[
+		"APC-key25-mk2.js"
+	],
+
+	"values":
+	{
+		"Knobs":
+		{
+			"type":"Container",
+			"collapsed":true,
+
+			"Knob 1": { "type":"Float", "default":0},
+			"Knob 2": { "type":"Float", "default":0},
+			"Knob 3": { "type":"Float", "default":0},
+			"Knob 4": { "type":"Float", "default":0},
+			"Knob 5": { "type":"Float", "default":0},
+			"Knob 6": { "type":"Float", "default":0},
+			"Knob 7": { "type":"Float", "default":0},
+			"Knob 8": { "type":"Float", "default":0}
+		},
+
+		"Main Pads":
+		{
+			"type":"Container",
+			"collapsed":true,
+
+			"Pad 1.1": { "type": "Boolean"},
+			"Pad 1.2": { "type": "Boolean"},
+			"Pad 1.3": { "type": "Boolean"},
+			"Pad 1.4": { "type": "Boolean"},
+			"Pad 1.5": { "type": "Boolean"},
+			"Pad 1.6": { "type": "Boolean"},
+			"Pad 1.7": { "type": "Boolean"},
+			"Pad 1.8": { "type": "Boolean"},
+
+			"Pad 2.1": { "type": "Boolean"},
+			"Pad 2.2": { "type": "Boolean"},
+			"Pad 2.3": { "type": "Boolean"},
+			"Pad 2.4": { "type": "Boolean"},
+			"Pad 2.5": { "type": "Boolean"},
+			"Pad 2.6": { "type": "Boolean"},
+			"Pad 2.7": { "type": "Boolean"},
+			"Pad 2.8": { "type": "Boolean"},
+
+			"Pad 3.1": { "type": "Boolean"},
+			"Pad 3.2": { "type": "Boolean"},
+			"Pad 3.3": { "type": "Boolean"},
+			"Pad 3.4": { "type": "Boolean"},
+			"Pad 3.5": { "type": "Boolean"},
+			"Pad 3.6": { "type": "Boolean"},
+			"Pad 3.7": { "type": "Boolean"},
+			"Pad 3.8": { "type": "Boolean"},
+
+			"Pad 4.1": { "type": "Boolean"},
+			"Pad 4.2": { "type": "Boolean"},
+			"Pad 4.3": { "type": "Boolean"},
+			"Pad 4.4": { "type": "Boolean"},
+			"Pad 4.5": { "type": "Boolean"},
+			"Pad 4.6": { "type": "Boolean"},
+			"Pad 4.7": { "type": "Boolean"},
+			"Pad 4.8": { "type": "Boolean"},
+
+			"Pad 5.1": { "type": "Boolean"},
+			"Pad 5.2": { "type": "Boolean"},
+			"Pad 5.3": { "type": "Boolean"},
+			"Pad 5.4": { "type": "Boolean"},
+			"Pad 5.5": { "type": "Boolean"},
+			"Pad 5.6": { "type": "Boolean"},
+			"Pad 5.7": { "type": "Boolean"},
+			"Pad 5.8": { "type": "Boolean"}
+		},
+
+		"Other Buttons":
+		{
+			"type": "Container",
+			"collapsed":true,
+
+			"Up": { "type": "Boolean"},
+			"Down": { "type": "Boolean"},
+			"Left": { "type": "Boolean"},
+			"Right": { "type": "Boolean"},
+			"Volume": { "type": "Boolean"},
+			"Pan": { "type": "Boolean"},
+			"Send": { "type": "Boolean"},
+			"Device": { "type": "Boolean"},
+			"Shift": { "type": "Boolean"},
+			"Play/Pause": { "type": "Boolean"},
+			"Record": { "type": "Boolean"}
+		},
+
+		"Softkeys":
+		{
+			"type": "Container",
+			"collapsed":true,
+
+			"Clip Stop": { "type": "Boolean"},
+			"Solo": { "type": "Boolean"},
+			"Mute": { "type": "Boolean"},
+			"Rec": { "type": "Boolean"},
+			"Select": { "type": "Boolean"},
+			"Stop All Clips": { "type": "Boolean"}
+		}
+	},
+
+	"commands":
+	{
+		"Set Color":
+		{
+			"menu":"Color",
+			"callback":"setColorEnum",
+			"parameters":
+			{
+				"Button Index":
+				{
+					"type":"Enum",
+					"options":
+					{
+						"Main Pad 1.1":[0,0],
+						"Main Pad 1.2":[0,1],
+						"Main Pad 1.3":[0,2],
+						"Main Pad 1.4":[0,3],
+						"Main Pad 1.5":[0,4],
+						"Main Pad 1.6":[0,5],
+						"Main Pad 1.7":[0,6],
+						"Main Pad 1.8":[0,7],
+						
+						"Main Pad 2.1":[1,0],
+						"Main Pad 2.2":[1,1],
+						"Main Pad 2.3":[1,2],
+						"Main Pad 2.4":[1,3],
+						"Main Pad 2.5":[1,4],
+						"Main Pad 2.6":[1,5],
+						"Main Pad 2.7":[1,6],
+						"Main Pad 2.8":[1,7],
+						
+						"Main Pad 3.1":[2,0],
+						"Main Pad 3.2":[2,1],
+						"Main Pad 3.3":[2,2],
+						"Main Pad 3.4":[2,3],
+						"Main Pad 3.5":[2,4],
+						"Main Pad 3.6":[2,5],
+						"Main Pad 3.7":[2,6],
+						"Main Pad 3.8":[2,7],
+						
+						"Main Pad 4.1":[3,0],
+						"Main Pad 4.2":[3,1],
+						"Main Pad 4.3":[3,2],
+						"Main Pad 4.4":[3,3],
+						"Main Pad 4.5":[3,4],
+						"Main Pad 4.6":[3,5],
+						"Main Pad 4.7":[3,6],
+						"Main Pad 4.8":[3,7],
+						
+						"Main Pad 5.1":[4,0],
+						"Main Pad 5.2":[4,1],
+						"Main Pad 5.3":[4,2],
+						"Main Pad 5.4":[4,3],
+						"Main Pad 5.5":[4,4],
+						"Main Pad 5.6":[4,5],
+						"Main Pad 5.7":[4,6],
+						"Main Pad 5.8":[4,7]						
+					}
+				},
+
+				"Color":
+				{
+					"type":"Color"
+				}
+			}
+		},
+
+		"Set Color by Note":
+		{
+			"menu":"Color",
+			"callback":"setColorByNote",
+			"parameters":
+			{
+				"Button Note":
+				{
+					"type":"Integer",
+					"min":0,
+					"max":39
+				},
+
+				"Color":
+				{
+					"type":"Color"
+				}
+			}
+		},
+		
+		"Set Color by Index":
+		{
+			"menu":"Color",
+			"callback":"setColorByIndex",
+			"parameters":
+			{
+				"Button Index":
+				{
+					"type":"Integer",
+					"min":0,
+					"max":39
+				},
+
+				"Color":
+				{
+					"type":"Color"
+				}
+			}
+		},
+
+		"Set Color by Position":
+		{
+			"menu":"Color",
+			"callback":"setColorByPosition",
+			"parameters":
+			{
+				"Button Row":
+				{
+					"type":"Integer",
+					"min":1,
+					"max":5
+				},
+
+				"Button Column":
+				{
+					"type":"Integer",
+					"min":1,
+					"max":8
+				},
+
+				"Color":
+				{
+					"type":"Color"
+				}
+			}
+		},
+
+		"Set Pulsing":
+		{
+			"menu":"Pulsing",
+			"callback":"setPulsingEnum",
+			"parameters":
+			{
+				"Pad Index":
+				{
+					"type":"Enum",
+					"options":
+					{
+						"Main Pad 1.1":[0,0],
+						"Main Pad 1.2":[0,1],
+						"Main Pad 1.3":[0,2],
+						"Main Pad 1.4":[0,3],
+						"Main Pad 1.5":[0,4],
+						"Main Pad 1.6":[0,5],
+						"Main Pad 1.7":[0,6],
+						"Main Pad 1.8":[0,7],
+						
+						"Main Pad 2.1":[1,0],
+						"Main Pad 2.2":[1,1],
+						"Main Pad 2.3":[1,2],
+						"Main Pad 2.4":[1,3],
+						"Main Pad 2.5":[1,4],
+						"Main Pad 2.6":[1,5],
+						"Main Pad 2.7":[1,6],
+						"Main Pad 2.8":[1,7],
+						
+						"Main Pad 3.1":[2,0],
+						"Main Pad 3.2":[2,1],
+						"Main Pad 3.3":[2,2],
+						"Main Pad 3.4":[2,3],
+						"Main Pad 3.5":[2,4],
+						"Main Pad 3.6":[2,5],
+						"Main Pad 3.7":[2,6],
+						"Main Pad 3.8":[2,7],
+						
+						"Main Pad 4.1":[3,0],
+						"Main Pad 4.2":[3,1],
+						"Main Pad 4.3":[3,2],
+						"Main Pad 4.4":[3,3],
+						"Main Pad 4.5":[3,4],
+						"Main Pad 4.6":[3,5],
+						"Main Pad 4.7":[3,6],
+						"Main Pad 4.8":[3,7],
+						
+						"Main Pad 5.1":[4,0],
+						"Main Pad 5.2":[4,1],
+						"Main Pad 5.3":[4,2],
+						"Main Pad 5.4":[4,3],
+						"Main Pad 5.5":[4,4],
+						"Main Pad 5.6":[4,5],
+						"Main Pad 5.7":[4,6],
+						"Main Pad 5.8":[4,7]						
+					}
+				},
+
+				"Pulsing":
+				{
+					"type":"Boolean"
+				}
+			}
+		},
+
+		"Set Pulsing by Note":
+		{
+			"menu":"Pulsing",
+			"callback":"setPulsingByNote",
+			"parameters":
+			{
+				"Button Note":
+				{
+					"type":"Integer",
+					"min":0,
+					"max":39
+				},
+
+				"Pulsing":
+				{
+					"type":"Boolean"
+				}
+			}
+		},
+		
+		"Set Pulsing by Index":
+		{
+			"menu":"Pulsing",
+			"callback":"setPulsingByIndex",
+			"parameters":
+			{
+				"Button Index":
+				{
+					"type":"Integer",
+					"min":0,
+					"max":39
+				},
+
+				"Pulsing":
+				{
+					"type":"Boolean"
+				}
+			}
+		},
+
+		"Set Pulsing by Position":
+		{
+			"menu":"Pulsing",
+			"callback":"setPulsingByPosition",
+			"parameters":
+			{
+				"Button Row":
+				{
+					"type":"Integer",
+					"min":1,
+					"max":5
+				},
+
+				"Button Column":
+				{
+					"type":"Integer",
+					"min":1,
+					"max":8
+				},
+
+				"Pulsing":
+				{
+					"type":"Boolean"
+				}
+			}
+		},
+
+		"Set Other Button LED":
+		{
+			"menu":"Side/Bottom LED",
+			"callback":"setButtonLed",
+			"parameters":
+			{
+				"Side/Bottom":
+				{
+					"type":"Enum",
+					"options":
+					{
+						"Side":0,
+						"Bottom":1
+					}
+
+				},
+
+				"Index":
+				{
+					"type":"Integer",
+					"min":1,
+					"max":8
+				},
+
+				"LED":
+				{
+					"type":"Boolean"
+				}
+			}
+		},
+
+		"Resync Device":
+		{
+			"menu":"",
+			"callback":"resync"
+		}
+	}
+}
