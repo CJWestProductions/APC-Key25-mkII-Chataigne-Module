@@ -11,8 +11,11 @@ var buttonNotes = [
 	[ 8, 9, 10, 11, 12, 13, 14, 15],
 	[ 0, 1, 2, 3, 4, 5, 6, 7],
 ]; // Notes
-var otherButtonNotes = [64, 65, 66, 67, 68, 69, 70, 71, 98, 91, 93];
-var softkeyNotes = [82, 83, 84, 85, 86, 81];
+
+var softkeyNotes = [82, 83, 84, 85, 86, 81, 
+					64, 65, 66, 67, 68, 69, 70, 71, 98, 91, 93];
+var softkeyNames = ["clipStop","solo","mute","recArm","select","stopAllClips",
+					"up","down","left","right","volume","pan","send","device","shift","play_Pause","record"];
 
 var noteValueObj = [];
 var noteColorObj = [];
@@ -20,7 +23,6 @@ var notePulsingObj = [];
 var ccValueObj = [];
 
 var knobValueObj = [];
-var padValueObj = [];
 
 var colorParameterObj = [];
 var pulsingParameterObj = [];
@@ -52,7 +54,7 @@ function sendButtonColorBrightness(id, color, brightness)
 	var gMSBLSB = calcMSBLSB(g);
 	var bMSBLSB = calcMSBLSB(b);
 
-	// script.log("Set Color for note " + note + " to rgb:{"+r+","+g+","+b+"} Intensity: "+brightness);
+	script.log("Set Color for note " + note + " to rgb:{"+r+","+g+","+b+"} Intensity: "+brightness);
 	local.sendSysex(0x47, 0x7F, 0x4E, 0x24, 0x00, 0x09, note, note, rMSBLSB[0], rMSBLSB[1], gMSBLSB[0], gMSBLSB[1], bMSBLSB[0], bMSBLSB[1],0x00);
 	util.delayThreadMS(1);
 }
@@ -61,7 +63,7 @@ function sendButtonColorBrightness(id, color, brightness)
 function sendButtonColor(id, color)
 {
 	var note = buttonNotes[id[0]][id[1]];
-	//script.log(id);
+
 	var r = Math.round(color[0] * 127);
 	var g = Math.round(color[1] * 127);
 	var b = Math.round(color[2] * 127);
@@ -75,18 +77,10 @@ function sendButtonColor(id, color)
 	util.delayThreadMS(1);
 }
 
-function sendButton(side, index, state)
+function sendButton(name, state)
 {
-	if (side)
-	{
-		var note = sideButtonNotes[index];
-		local.sendNoteOn(0, note, state ? 127 : 0);
-	}
-	else
-	{
-		var note = bottomButtonNotes[index];
-		local.sendNoteOn(0, note, state ? 127 : 0);
-	}
+	index = softkeyNames.indexOf(name);
+	local.sendNoteOn(0,softkeyNotes[index],state ? 127 :0);
 }
 // ---- User Commands ----
 
@@ -116,20 +110,6 @@ function resync()
 			util.delayThreadMS(1);
 		}
 	}
-
-	// Other Buttons
-	/* for (i = 0; i < 8; i++)
-	{
-		// Side Buttons
-		var value = colorParameterObj[i][8].get();
-		sendButton(true, i, value);
-		util.delayThreadMS(1);
-
-		// Bottom Buttons
-		var value = colorParameterObj[8][i].get();
-		sendButton(false, i, value);
-		util.delayThreadMS(1);
-	}*/
 } 
 
 // ---- Module Common Functions ----
@@ -141,7 +121,6 @@ function init()
 	// init variable
 	for (var i = 0; i < 5; i++) 
 	{
-		padValueObj[i] = [];
 		colorParameterObj[i] = [];
 		pulsingParameterObj[i] = [];
 	}
@@ -157,7 +136,6 @@ function init()
 	{
 		for (var column = 0; column < 8; column++) 
 		{
-			padValueObj[i][column] = local.values.getChild("Main Pads").getChild("pad" + (i + 1) + (column + 1) + "");
 			colorParameterObj[i][column] = local.parameters.colors.getChild("Main Pads").getChild("pad" + (i + 1) + (column + 1) + "");
 			pulsingParameterObj[i][column] = local.parameters.pulsing.getChild("Main Pads").getChild("pad" + (i + 1) + (column + 1) + "");
 
@@ -169,32 +147,14 @@ function init()
 		}
     }
 
-	// Side Buttons
-    /* for (var i = 0; i < 8; i++) 
+	//Softkeys
+
+	for ( var i = 0; i < softkeyNotes.length; i++)
 	{
-        padValueObj[i][8] = local.values.getChild("Other Buttons").getChild("sideButton" + (i + 1));
-        colorParameterObj[i][8] = local.parameters.colors.getChild("Side Buttons").getChild("sideButton" + (i + 1));
-
-		var note = sideButtonNotes[i];
-        noteValueObj[note] = local.values.getChild("Side Buttons").getChild("sideButton" + (i + 1));
-        noteColorObj[note] = local.parameters.colors.getChild("Side Buttons").getChild("sideButton" + (i + 1));
-    }
-
-	// Bottom Buttons
-    for (var i = 0; i < 9; i++) 
-	{
-        padValueObj[8][i] = local.values.getChild("Bottom Buttons").getChild("bottomButton" + (i + 1) + "");
-
-		if (i < 8)
-        colorParameterObj[8][i] = local.parameters.colors.getChild("Bottom Buttons").getChild("bottomButton" + (i + 1) + "");
-
-		var note = bottomButtonNotes[i];
-        noteValueObj[note] = local.values.getChild("Bottom Buttons").getChild("bottomButton" + (i + 1) + "");
-
-		if (i < 8)
-			noteColorObj[note] = local.parameters.colors.getChild("Bottom Buttons").getChild("bottomButton" + (i + 1) + "");
-    }
- */
+		var note = softkeyNotes[i];
+		noteValueObj[note] = local.values.softkeys.getChild(softkeyNames[i]);
+		noteColorObj[note] = local.parameters.colors.softkeys.getChild(softkeyNames[i]);
+	}
 
 	if (local.parameters.isConnected) resync();
 }
@@ -220,7 +180,6 @@ function moduleParameterChanged(param)
 			if (midiOutDevice) {
 				script.log("New Midi out Device detected");
 				resyncReady = true;
-				// resync();
 			}
 		}
 	}
@@ -236,28 +195,20 @@ function moduleParameterChanged(param)
 			var id = [(parseInt(param.name.charAt(3))-1), (parseInt(param.name.charAt(4))-1)];
 			sendButtonColor(id, color);
 		}
-		else if(param.getParent().name == "sideButtons")
+		else if(param.getParent().name == "softkeys")
 		{
-			var index = parseInt(param.name.charAt(10)) - 1;
-			sendButton(true, index, param.get());
-		}
-		else if(param.getParent().name == "bottomButtons")
-		{
-			var index = (parseInt(param.name.charAt(12)) - 1);
-			script.log(index);
-			sendButton(false, index, param.get());
+			sendButton(param.name, param.get());
 		}
 	}
 
 	// Pulsing
 	if(param.getParent().getParent().name == "pulsing")
 	{
-		// if pulsing just got turned of send full brightness color again
+		// if pulsing just got turned off send full brightness color again
 		if (param.get() == false){
-			if(param.getParent().name == "mainButtons")
+			if(param.getParent().name == "mainPads")
 			{
-				// var id = [(parseInt(param.name.charAt(6))-1), (parseInt(param.name.charAt(7))-1)];
-				var id = [(parseInt(param.name.charAt(6))-1), (parseInt(param.name.charAt(7))-1)];
+				var id = [(parseInt(param.name.charAt(3))-1), (parseInt(param.name.charAt(4))-1)];
 				var color = colorParameterObj[id[0]][id[1]].get();
 				sendButtonColor(id, color);
 			}
@@ -308,7 +259,7 @@ function noteOnEvent(channel, note, velocity)
 	if (channel != 1) return;
 
 	var button = noteValueObj[note];
-	if (!!button)
+	if (button != undefined)
 	{
 		button.set((velocity==127));
 	}
@@ -320,7 +271,7 @@ function noteOffEvent(channel, note, velocity)
 	if (channel != 1) return;
 
 	var button = noteValueObj[note];
-	if (!!button)
+	if (button != undefined)
 	{
 		button.set(false);
 	}
@@ -332,7 +283,7 @@ function ccEvent(channel, note, value)
 	if (channel != 1) return;
 	script.log(channel, note);
 	var knob = ccValueObj[note];
-	if (!!knob)
+	if (knob != undefined)
 	{
 		if(value>64){
 			value = -1* (128-value);
@@ -425,16 +376,7 @@ function setPulsingByPosition(x, y, pulsing)
 	}
 }
 
-function setButtonLed(isBottom, index, state)
-{
-	var obj = isBottom ? colorParameterObj[8][index-1] : colorParameterObj[index-1][8];
-	if (!!obj)
-	{
-		obj.set(state);
-	}
-}
-
-function setButtonLedByNote(note, state)
+function setSoftkeyLed(note, state)
 {
 	var obj = noteColorObj[note];
 	if (!!obj)

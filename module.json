@@ -3,7 +3,7 @@
 	"type":"MIDI",
 	"path":"Hardware",
 	
-	"version":"0.2.0",
+	"version":"1.0.0",
 	"description":"Special MIDI Module for the APC Key25 mkII MIDI Controller",
 	"url":"https://github.com/CJWestProductions/APC-Key25-mkII-Chataigne-Module",
 	"downloadURL":"https://github.com/CJWestProductions/APC-Key25-mkII-Chataigne-Module/archive/refs/heads/main.zip",
@@ -71,24 +71,6 @@
 				"Pad 5.8": { "type": "Color"}
 			},
 
-			"Other Buttons":
-			{
-				"type": "Container",
-				"collapsed":true,
-
-				"Up": { "type": "Boolean"},
-				"Down": { "type": "Boolean"},
-				"Left": { "type": "Boolean"},
-				"Right": { "type": "Boolean"},
-				"Volume": { "type": "Boolean"},
-				"Pan": { "type": "Boolean"},
-				"Send": { "type": "Boolean"},
-				"Device": { "type": "Boolean"},
-				"Shift": { "type": "Boolean"},
-				"Play/Pause": { "type": "Boolean"},
-				"Record": { "type": "Boolean"}
-			},
-
 			"Softkeys":
 			{
 				"type": "Container",
@@ -97,9 +79,16 @@
 				"Clip Stop": { "type": "Boolean"},
 				"Solo": { "type": "Boolean"},
 				"Mute": { "type": "Boolean"},
-				"Rec": { "type": "Boolean"},
+				"Rec Arm": { "type": "Boolean"},
 				"Select": { "type": "Boolean"},
-				"Stop All Clips": { "type": "Boolean"}
+				"Up": { "type": "Boolean"},
+				"Down": { "type": "Boolean"},
+				"Left": { "type": "Boolean"},
+				"Right": { "type": "Boolean"},
+				"Volume": { "type": "Boolean"},
+				"Pan": { "type": "Boolean"},
+				"Send": { "type": "Boolean"},
+				"Device": { "type": "Boolean"}
 			}
 		},
 		
@@ -254,11 +243,17 @@
 			"Pad 5.8": { "type": "Boolean"}
 		},
 
-		"Other Buttons":
+		"Softkeys":
 		{
 			"type": "Container",
 			"collapsed":true,
 
+			"Clip Stop": { "type": "Boolean"},
+			"Solo": { "type": "Boolean"},
+			"Mute": { "type": "Boolean"},
+			"Rec Arm": { "type": "Boolean"},
+			"Select": { "type": "Boolean"},
+			"Stop All Clips": { "type": "Boolean"},
 			"Up": { "type": "Boolean"},
 			"Down": { "type": "Boolean"},
 			"Left": { "type": "Boolean"},
@@ -270,19 +265,6 @@
 			"Shift": { "type": "Boolean"},
 			"Play/Pause": { "type": "Boolean"},
 			"Record": { "type": "Boolean"}
-		},
-
-		"Softkeys":
-		{
-			"type": "Container",
-			"collapsed":true,
-
-			"Clip Stop": { "type": "Boolean"},
-			"Solo": { "type": "Boolean"},
-			"Mute": { "type": "Boolean"},
-			"Rec": { "type": "Boolean"},
-			"Select": { "type": "Boolean"},
-			"Stop All Clips": { "type": "Boolean"}
 		}
 	},
 
@@ -552,31 +534,33 @@
 			}
 		},
 
-		"Set Other Button LED":
+		"Set Softkey LED":
 		{
-			"menu":"Side/Bottom LED",
-			"callback":"setButtonLed",
+			"callback":"setSoftkeyLed",
 			"parameters":
 			{
-				"Side/Bottom":
+				"Softkey":
 				{
 					"type":"Enum",
 					"options":
 					{
-						"Side":0,
-						"Bottom":1
+						"Clip Stop":82,
+						"Solo":83,
+						"Mute":84,
+						"Rec Arm":85,
+						"Select":86,
+						"Up":64,
+						"Down":65,
+						"Left":66,
+						"Right":67,
+						"Volume":68,
+						"Pan":69,
+						"Send":70,
+						"Device":71
 					}
 
 				},
-
-				"Index":
-				{
-					"type":"Integer",
-					"min":1,
-					"max":8
-				},
-
-				"LED":
+				"LED On/Off":
 				{
 					"type":"Boolean"
 				}

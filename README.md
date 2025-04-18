@@ -3,8 +3,9 @@ A Chataigne module for the Akai APC Key 25 mkII MIDI Controller
 Based on the module for the APC Mini Mk2 by lenschcode
 
 ## Important Notes
-This module only implements the pads, buttons, and knobs, not the keyboard functions. Those come in on a separate MIDI connection. The "Sustain", "Oct-", and Oct+" keys are associated with that connection as well.
-In order to make the module work connect Midi in and out to the second MIDI device caled APC key 25 mk2.
+- This module only implements the pads, buttons, and knobs, not the keyboard functions. Those come in on a separate MIDI connection. The "Sustain", "Oct-", and Oct+" keys are associated with that connection as well.
+- In order to make the module work connect Midi in and out to the second MIDI port of the device (called MIDIIN2 or MIDIOUT2).
+- Not all softkeys have LEDs. Stop All Clips, Shift, Play/Pause, and Record do not have LEDs, and thus cannot be lit
 
 ## Features
 - All pads mapped
@@ -15,6 +16,13 @@ In order to make the module work connect Midi in and out to the second MIDI devi
 - Partial: Extensive user commands
 
 ## Changelog
+### V 1.0.0:
+- Full functionality is implemented
+    - Softkeys and pads are all functional
+    - LEDs all working
+    - Commands are all tested
+- Testing, Bug-fixes, and cleanup
+
 ### V 0.2.0:
 - Colors for pads are implemented, with full RGB control.
 - Pulsing of pads is also working, as a result of the above.
