@@ -8,12 +8,14 @@ Based on the module for the APC Mini Mk2 by lenschcode
 - Not all softkeys have LEDs. Stop All Clips, Shift, Play/Pause, and Record do not have LEDs, and thus cannot be lit
 
 ## Features
-- All pads mapped
+- All pads and softkeys mapped
 - All Knobs maped
 - Full RGB 14bit color feedback for pads
-- TODO: small button functionality
 - Last state automatically restored on reconnect
-- Partial: Extensive user commands
+- Extensive user commands
+    - Force Resync
+    - Set softkey LED States
+    - Set pad LED Colors and pulsing on/off
 
 ## Changelog
 ### V 1.0.0:
