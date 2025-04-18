@@ -42,10 +42,8 @@ function calcMSBLSB(value) {
 
 function sendButtonColorBrightness(id, color, brightness)
 {
-	script.log(note);
 	var note = buttonNotes[id[0]][id[1]];
 
-					// newColor[1] = Math.round((color[1] * intensity) / 255);
 	var r = Math.round(((color[0] * 127) * brightness) / 255);
 	var g = Math.round(((color[1] * 127) * brightness) / 255);
 	var b = Math.round(((color[2] * 127) * brightness) / 255);
@@ -55,7 +53,7 @@ function sendButtonColorBrightness(id, color, brightness)
 	var bMSBLSB = calcMSBLSB(b);
 
 	// script.log("Set Color for note " + note + " to rgb:{"+r+","+g+","+b+"} Intensity: "+brightness);
-	local.sendSysex(0x47, 0x7F, 0x4E, 0x24, 0x00, 0x08, note, note, rMSBLSB[0], rMSBLSB[1], gMSBLSB[0], gMSBLSB[1], bMSBLSB[0], bMSBLSB[1]);
+	local.sendSysex(0x47, 0x7F, 0x4E, 0x24, 0x00, 0x09, note, note, rMSBLSB[0], rMSBLSB[1], gMSBLSB[0], gMSBLSB[1], bMSBLSB[0], bMSBLSB[1],0x00);
 	util.delayThreadMS(1);
 }
 
@@ -73,7 +71,7 @@ function sendButtonColor(id, color)
 	var bMSBLSB = calcMSBLSB(b);
 
 	script.log("Set Color for note " + note + " to rgb:{"+r+","+g+","+b+"}");
-	local.sendSysex(0x47, 0x7F, 0x4E, 0x24, 0x00, 0x08, note, note, rMSBLSB[0], rMSBLSB[1], gMSBLSB[0], gMSBLSB[1], bMSBLSB[0], bMSBLSB[1]);
+	local.sendSysex(0x47, 0x7F, 0x4E, 0x24, 0x00, 0x09, note, note, rMSBLSB[0], rMSBLSB[1], gMSBLSB[0], gMSBLSB[1], bMSBLSB[0], bMSBLSB[1],0x00);
 	util.delayThreadMS(1);
 }
 
@@ -170,7 +168,7 @@ function init()
 
 		}
     }
-	//local.sendSysex(0x47, 0x7F, 0x4E, 0x24, 0x00, 0x08, 0, 0, 127,127,127,127,0,0);
+
 	// Side Buttons
     /* for (var i = 0; i < 8; i++) 
 	{
